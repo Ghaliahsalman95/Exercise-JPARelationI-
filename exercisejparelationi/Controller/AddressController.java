@@ -23,7 +23,7 @@ public class AddressController {
         logger.info("inside add ");
 
         addressService.add(AdressDTO);
-        return ResponseEntity.status(HttpStatus.OK).body(new APIResponse("link with customer successfully"));
+        return ResponseEntity.status(HttpStatus.OK).body(new APIResponse("add successfully"));
     }
     @GetMapping("get-all")
     public ResponseEntity get(){
