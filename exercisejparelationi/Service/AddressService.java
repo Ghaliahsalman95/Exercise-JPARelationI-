@@ -28,7 +28,7 @@ private final TeacherRepositry teacherRepositry;
             Address address=new Address(null,AddressDTO.getArea(),AddressDTO.getStreet(),AddressDTO.getBuildingNumber(),teacher);
             addressReopsitry.save(address);
         }
-        else throw  new APIException("Not found customer id");
+        else throw  new APIException("Not found teacher id");
     }
 
     public void update(AdressDTO addressDTO){

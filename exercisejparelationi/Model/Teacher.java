@@ -23,7 +23,7 @@ public class Teacher {
     private String email;
     @Column(columnDefinition = "int not null")
     private Integer salary;
-    @OneToOne(cascade = CascadeType.ALL,mappedBy = "address")
+    @OneToOne(cascade = CascadeType.ALL,mappedBy ="teacher")
     @PrimaryKeyJoinColumn// هذا تابع
     private Address address;
 
