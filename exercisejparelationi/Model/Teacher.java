@@ -26,5 +26,8 @@ public class Teacher {
     @OneToOne(cascade = CascadeType.ALL,mappedBy ="teacher")
     @PrimaryKeyJoinColumn// هذا تابع
     private Address address;
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL)
+    private Set<Course> courses;
+}
 
 }
