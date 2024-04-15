@@ -19,8 +19,15 @@ public class Address {
     private String street;
     @Column(columnDefinition = "varchar(20) not null")
     private String buildingNumber;
+//    @OneToOne
+//    @MapsId//only oneToOne relation its =    @PrimaryKeyJoinColumn
+//    @JsonIgnore // infinite loop so when get address ignore address
+//    private Teacher teacher;
+
+
     @OneToOne
-    @MapsId//only oneToOne relation its =    @PrimaryKeyJoinColumn
-    @JsonIgnore // infinite loop so when get profile ignore address
+    @MapsId
+    @JsonIgnore
     private Teacher teacher;
+
 }

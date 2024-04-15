@@ -28,7 +28,6 @@ public class CourseController {
     }
 
 
-
     @PostMapping("add/{teacherId}")
     public ResponseEntity addCourse(@PathVariable Integer teacherId, @RequestBody @Valid Course course) {
         logger.info("Add course");
@@ -40,7 +39,7 @@ public class CourseController {
     public ResponseEntity updateCourse(@PathVariable Integer id, @RequestBody @Valid Course course) {
         logger.info("update course");
         courseService.updateCourse(id, course);
-        return ResponseEntity.status (200).body(new APIResponse("update"));
+        return ResponseEntity.status(200).body(new APIResponse("update"));
 
     }
 
@@ -48,12 +47,25 @@ public class CourseController {
     public ResponseEntity deleteCourse(@PathVariable Integer id) {
         logger.info("delete course");
         courseService.deleteCourse(id);
-        return ResponseEntity.status (200).body(new APIResponse("delete"));
+        return ResponseEntity.status(200).body(new APIResponse("delete"));
     }
+
     @GetMapping("get-teacher-name/{id}")
     public ResponseEntity getTeacherNameByCourseId(@PathVariable Integer id) {
         logger.info("teacher name");
 
-        return ResponseEntity.status (200).body(courseService.getTeacherName(id));
+        return ResponseEntity.status(200).body(courseService.getTeacherName(id));
     }
+
+    @GetMapping("get-list-students/{courseID}")
+    public ResponseEntity getListStudent(@PathVariable Integer courseID){
+        return ResponseEntity.status(HttpStatus.OK).body(courseService.getListStudent(courseID));
+    }
+@PutMapping("add-student-to-course/{studentID}/{courseID}")
+    public ResponseEntity addStudentsTocourse(@PathVariable Integer studentID, @PathVariable Integer courseID){
+        courseService.addStudentsTocourse(courseID,studentID);
+        return ResponseEntity.status(HttpStatus.OK).body(new APIResponse("Student ID"+studentID +"Added course ID"+courseID+"successfully"));
+    }
+//}
+
 }
