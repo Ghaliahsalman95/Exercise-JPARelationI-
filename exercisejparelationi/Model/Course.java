@@ -1,15 +1,16 @@
 package com.example.exercisejparelationi.Model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import javax.persistence.*;
-import javax.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotEmpty;
+import lombok.*;
+
 @Data
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Course {
     @Id
@@ -24,5 +25,5 @@ public class Course {
     @JsonIgnore
     private Teacher teacher;
 
-   
+
 }
