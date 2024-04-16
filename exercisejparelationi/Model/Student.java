@@ -24,8 +24,7 @@ public class Student {
     @NotEmpty(message = "major not empty")
     private String major;
 
-    @ManyToMany
-    @JsonIgnore
-    private Set<Course> courses;//same spilling in [mappedBy = "students"] model in student;
+    @ManyToMany(mappedBy = "students")//same spilling in next model
+    private Set<Course> courses;
 
 }

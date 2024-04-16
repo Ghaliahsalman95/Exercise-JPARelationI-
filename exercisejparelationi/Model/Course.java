@@ -23,13 +23,14 @@ public class Course {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     @JsonIgnore
+    @JoinColumn(name = "teacher_id", referencedColumnName = "id")
     private Teacher teacher;
 
 
-    @ManyToMany(mappedBy = "courses")//same spilling in next model
-    private Set<Student> students;
+    @ManyToMany
+    @JsonIgnore
+    private Set<Student> students;//same spilling in [mappedBy = "students"] model in student;
 
 
 }

@@ -9,7 +9,6 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
-@Data
 @AllArgsConstructor
 @Entity
 public class Teacher {

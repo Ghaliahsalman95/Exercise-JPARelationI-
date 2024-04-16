@@ -7,7 +7,7 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-@Data@AllArgsConstructor
+@AllArgsConstructor
 @Entity
 public class Address {
     @Id
