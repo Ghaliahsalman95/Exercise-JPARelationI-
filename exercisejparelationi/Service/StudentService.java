@@ -45,10 +45,12 @@ public class StudentService {
 public void changeMajor(Integer studentID, String major){
       Student student=studentRepositry.findStudentById(studentID);
       if(student!=null){
+          if(!student.getMajor().equalsIgnoreCase(major)){
           student.setMajor(major);
           student.getCourses().clear();
           student.setCourses(null);
-          studentRepositry.save(student);
+          studentRepositry.save(student);}
+          else{throw new APIException("can not change with same major ");}
       }
       else {throw new APIException("Not found student with id "+studentID);}
 
