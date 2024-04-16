@@ -82,8 +82,12 @@ public class CourseService {
         if (student==null  || course==null){
             throw new APIException("Cant add Student To Course ");
         }
-        student.getCourses().add(course);
-        course.getStudents().add(student);
+        Set<Course>courses=student.getCourses();
+        Set<Student>students=course.getStudents();
+        students.add(student);
+        courses.add(course);
+course.setStudents(students);
+        student.setCourses(courses);
         studentRepositry.save(student);
         courseRepository.save(course);
     }
